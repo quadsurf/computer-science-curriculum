@@ -49,6 +49,11 @@ var Node = require('./node');
 
 //Make sure that this function calls new Node()
 var objectToNode = function(object) {
+  var node = new Node(object.name);
+  object.children.forEach(function (child) {
+    node.addChild(objectToNode(child));
+  });
+  return node;
 };
 
 module.exports = objectToNode;

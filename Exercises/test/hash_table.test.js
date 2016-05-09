@@ -50,7 +50,7 @@ describe("Hash Table", function() {
     });
 
     it("hashes a function", function() {
-      var f = function() {var i = 0; console.log(i);};
+      var f = function() {var i = 0; return i;};
       var total = strToCharCode(f.toString());
       expect(table.__hashFunction(f)).to.deep.equal(total % size);
     });
